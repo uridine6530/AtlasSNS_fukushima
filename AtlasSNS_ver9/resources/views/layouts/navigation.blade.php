@@ -1,13 +1,13 @@
         <div id="head">
-            <h1><a><img src="images/atlas.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>〇〇さん</p>
+            <h1><a href="top"><img src="images/atlas.png"></a></h1>
+            <div id="accordion-container">
+                <div id="accordion-header">
+                    <p id="toggle-button">〇〇さん</p>
                 </div>
-                <ul>
-                    <li><a href="">ホーム</a></li>
-                    <li><a href="">プロフィール</a></li>
-                    <li><a href="">ログアウト</a></li>
+                <ul id="accordion-content" style="display: none;">
+                    <li><a href="top">ホーム</a></li>
+                    <li><a href="profile">プロフィール</a></li>
+                    <li><a href="logout">ログアウト</a></li>
                 </ul>
             </div>
         </div>

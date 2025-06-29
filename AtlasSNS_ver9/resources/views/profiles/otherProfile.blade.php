@@ -1,12 +1,10 @@
 <x-login-layout>
-  {{ Form::open(['url' => 'search']) }}
-  {{ Form::input('text', 'post', null, ['required', 'class' => 'post']) }}
-  <button type="submit" class="btn"><img src="images/search.png"></button>
-  {{ Form::close() }}
-  {{$keyword}}
   @foreach($users as $user)
-  <img src="images/icon1.png" alt="">{{$user -> icon_image}}</img>
-  <p class="name">{{$user -> username}}</p>
+  <img src="{{asset('images/' . $user->icon_image)}}" alt="">
+  <p>ユーザー名</p>
+  <p>{{$user -> username}}</p>
+  <p>自己紹介</p>
+  <p>{{$user -> bio}}</p>
   @if(!auth()->user()->is_following($user->id))
   <form method="post" action="{{route('follow',['id'=>$user->id] )}}">
     @csrf
@@ -18,5 +16,12 @@
     <button type='submit' class="" value="submit">フォロー解除する</button>
   </form>
   @endif
+  @endforeach
+
+  @foreach($posts as $post)
+  <img src="{{asset('images/' . $post->user->icon_image)}}" alt="">
+  <p>{{ $post->user->username}}</p>
+  <p>{{ $post->post}}</p>
+  <p>{{ $post->updated_at}}</p>
   @endforeach
 </x-login-layout>
